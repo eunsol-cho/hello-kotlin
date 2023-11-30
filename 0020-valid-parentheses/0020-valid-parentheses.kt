@@ -1,12 +1,13 @@
 class Solution {
     fun isValid(s: String): Boolean {
 
-        // 40, 41, 123, 125, 91, 93
-        val open = listOf('(', '{', '[')
-        val close = listOf(')', '}', ']')
-        val stack = ArrayDeque<Char>()
+        val open = listOf('('.code, '{'.code, '['.code)
+        val close = listOf(')'.code, '}'.code, ']'.code)
+        val stack = ArrayDeque<Int>()
 
-        for (e in s) {
+        for (char in s) {
+
+            val e = char.code
 
             if (e in open)
                 stack.addLast(e)
@@ -17,8 +18,7 @@ class Solution {
             }
 
         }
-        
-        
+
         return stack.isEmpty();
 
     }
